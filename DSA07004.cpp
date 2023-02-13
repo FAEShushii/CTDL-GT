@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define faster() ios_base::sync_with_stdio(0); cin.tie(NULL);cout.tie(NULL); 
+
+int main() {
+    faster();
+	int t; cin >> t;
+	while (t--) {
+		string s; cin >> s;
+		int count = 0;
+		while (s.length()) {
+			int x = s.find("()");
+			if (x == -1) {
+				if (s[0] == ')') {
+					s[0] = '('; count++;
+				}
+				if (s[s.length() - 1] == '(') {
+					s[s.length() - 1] = ')'; count++;
+				}
+			}
+			else {
+				s.erase(x, 2);
+			}
+		}
+		cout << count << endl;
+	}return 0;
+}
